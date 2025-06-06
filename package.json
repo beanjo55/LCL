@@ -1,0 +1,24 @@
+{
+  "name": "LCL",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -k \"pnpm --filter=server dev\" \"pnpm --filter=web dev\"",
+    "build": "pnpm -r build"
+  },
+  "keywords": [],
+  "author": "abbybean22",
+  "license": "MIT",
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "tsx": "^4.19.4",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}

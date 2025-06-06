@@ -1,0 +1,14 @@
+[
+  {
+    "name": "CurrentProject",
+    "entityType": "software_project",
+    "observations": [
+      "Monorepo using pnpm",
+      "apps/server: Express & WebSocket server with TypeORM and Orchestrator library",
+      "apps/web frontend exists",
+      "Uses TypeScript",
+      "pnpm-workspace.yaml defines workspaces",
+      "packages directory for shared modules"
+    ]
+  }
+]

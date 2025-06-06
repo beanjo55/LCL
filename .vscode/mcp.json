@@ -1,0 +1,58 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/horizon/LCL"
+      ]
+    },
+    "discord-api-spec": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-openapi-schema-explorer@latest",
+        "https://raw.githubusercontent.com/discord/discord-api-spec/refs/heads/main/specs/openapi.json",
+        "--output-format",
+        "json"
+      ],
+      "env": {}
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+    "mcp-installer": {
+      "command": "npx",
+      "args": ["@anaisbetts/mcp-installer"]
+    },
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git"]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "think-mcp": {
+      "command": "uvx",
+      "args": ["think-mcp"],
+      "enabled": true
+    },
+    "package-version": {
+      "command": "/home/horizon/go/bin/mcp-package-version"
+    },
+    "user-feedback": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/home/horizon/mcp-servers/user-feedback-mcp",
+        "run",
+        "server.py"
+      ],
+      "timeout": 600,
+      "autoApprove": ["user_feedback"]
+    }
+  }
+}

@@ -1,25 +1,26 @@
 {
-  "name": "orchestrator",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pnpm exec tsc --project tsconfig.json"
+    "build": "tsc --project tsconfig.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.11.0",
   "dependencies": {
+    "body-parser": "^2.2.0",
     "express": "^5.1.0",
+    "orchestrator": "workspace:^",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.24",
-    "uuid": "^11.1.0",
     "ws": "^8.18.2"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.19.5",
     "@types/express": "^5.0.2",
     "@types/node": "^22.15.29",
     "@types/ws": "^8.18.1"
