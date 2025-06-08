@@ -1,11 +1,28 @@
-import { useState } from "react";
-import Chat from "./components/Chat";
-import "./components/Chat.css";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
+import Chat from "./components/Chat/Chat";
+import ToolsList from "./components/tools/ToolsList";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    loader: () => redirect("/chat"),
+  },
+  {
+    path: "/chat",
+    element: <Chat />,
+  },
+  {
+    path: "/tools",
+    element: <ToolsList />,
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <Chat />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Chat.css";
-
-interface Session {
-  id: string;
-}
+import type { Session } from "../../types/session";
+import ChatList from "./ChatNav/ChatList";
+import ChatBox from "./ChatBox";
 
 interface Message {
   id: string;
@@ -11,7 +10,31 @@ interface Message {
   type: "user" | "agent" | "thought";
 }
 
-const Chat: React.FC = () => {
+const Chat: React.FC<{ session?: Session }> = ({ session }) => {
+  return (
+    <div className="chat-window">
+      <div className="chat-sidebar-left">
+        <ChatList />
+      </div>
+      <div className="chat-area">
+        <h2>Chat</h2>
+        {session ? (
+          <div>
+            <h3>Session ID: {session.id}</h3>
+            <p>Session Name: {session.name}</p>
+          </div>
+        ) : (
+          <p>No active session</p>
+        )}
+        <ChatBox />
+      </div>
+    </div>
+  );
+};
+
+export default Chat;
+
+const GeneratedChat: React.FC = () => {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [sessionId, setSessionId] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
@@ -123,5 +146,3 @@ const Chat: React.FC = () => {
     </div>
   );
 };
-
-export default Chat;

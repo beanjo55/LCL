@@ -6,7 +6,11 @@ import { Database, runOrchestrationStream } from "orchestrator";
 import { json } from "body-parser";
 
 const app = express();
-const httpServer = createServer(app);
+const server = express();
+server.use("/api", app);
+
+const httpServer = createServer(server);
+
 const wss = new WebSocketServer({ server: httpServer });
 const db = new Database(process.env.DATABASE_URL!);
 
